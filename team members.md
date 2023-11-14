@@ -1,8 +1,8 @@
 roles:
-team leader
+team leader: Steven
 
 frontend UI designer: lynn
-frontend designer: jacky
+frontend designer: Jacky
 frontend developer: Steven
 
 
