@@ -1,4 +1,4 @@
-shiba-inu = [{"data_characteristics":
+const shibaInu = [{"data_characteristics":
 [{"title":"Adaptability","star_title":"4","characteristics":
 [{"type":"Adapts Well To Apartment Living","star":"5","description":"Contrary to popular belief, small size doesn't necessarily an apartment dog make. Plenty of small dogs are too high-energy and yappy for life in a high-rise. Being quiet, low energy, fairly calm indoors, and polite with the other residents are all good qualities in an apartment dog. And you can find an  to give them a little more personal space in your apartment."},
 {"type":"Good For Novice Owners","star":"4","description":"Some dogs are simply easier than others; they take to training better and are fairly easygoing. They're also resilient enough to bounce back from your mistakes or inconsistencies.Dogs who are highly sensitive, independent thinking, or assertive may be harder for a first-time dog parent to manage. You'll get your best match if you take your dog-owning experience into account as you choose your new pooch.If you're new to dog parenting,  on how to train your dog!"},
