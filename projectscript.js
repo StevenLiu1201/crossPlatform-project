@@ -1,4 +1,4 @@
-
+let allBreeds = []
 
 // dynamic url
 function buildBreedUrl(parameter,value,offset){
@@ -44,7 +44,6 @@ async function getDogs_breeds(value,parameter,offset) {
 
 //getAllBreeds()
 async function getAllBreeds() {
-  let allBreeds = [];
 
   for (let i = 1; i <= 5; i++) {
 
@@ -53,13 +52,17 @@ async function getAllBreeds() {
 
     while (done) {
       const result = await getDogs_breeds(i, 'barking', offset);
-//      console.log(result);
+      console.log(result);
 
       if (offset > 100) {
         done = false;
       } else {
-        allBreeds.push(result);
-        offset = offset + 20;
+        if (result){
+          allBreeds.push(result);
+          offset = offset + 20;
+        } else {
+          done = false;
+        }
       }
 
     }
@@ -119,24 +122,14 @@ async function getOne() {
 // function to retrieve dog names
 
 function dogsName(){
-  getAllBreeds()
-    .then(allDogs =>{
-      function name(){
-        let allDogsName = []
-        for (let dogs of allDogs) {
-          if (dogs) {
-            for (let dog of dogs) {
-              allDogsName.push(dog.name)
-            }
-          }
-        }
-      return allDogsName
+  let allDogsName = []
+  for (let dogs of allBreeds) {
+    if (dogs) {
+      for (let dog of dogs) {
+        allDogsName.push(dog.name)
       }
-    const dogName = name()
-    console.log(dogName)
-    })
-    .catch(error => {
-      console.error(error)
-    })
+    }
+  }
+  return allDogsName
 }
 
