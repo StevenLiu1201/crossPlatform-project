@@ -50,7 +50,7 @@ async function getAllBreeds() {
 
     let done = true;
     let offset = 20;
-    let num = 1
+    let num = 10
 
     while (done) {
       const result = await getDogs_breeds(i, 'barking', offset);
