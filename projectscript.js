@@ -50,22 +50,16 @@ async function getAllBreeds() {
 
     let done = true;
     let offset = 20;
-    let num = 10
 
     while (done) {
       const result = await getDogs_breeds(i, 'barking', offset);
-      console.log(result);
+//      console.log(result);
 
-      if (!result || result.length === 0) {
+      if (offset > 100) {
         done = false;
       } else {
         allBreeds.push(result);
         offset = offset + 20;
-      }
-      // num is for protect infinit looping 
-      num = num +1
-      if(num >2){
-        done = false
       }
 
     }
@@ -119,3 +113,30 @@ async function getOne() {
     console.error(error)
   }
 }
+
+
+// function on HTML
+// function to retrieve dog names
+
+function dogsName(){
+  getAllBreeds()
+    .then(allDogs =>{
+      function name(){
+        let allDogsName = []
+        for (let dogs of allDogs) {
+          if (dogs) {
+            for (let dog of dogs) {
+              allDogsName.push(dog.name)
+            }
+          }
+        }
+      return allDogsName
+      }
+    const dogName = name()
+    console.log(dogName)
+    })
+    .catch(error => {
+      console.error(error)
+    })
+}
+
