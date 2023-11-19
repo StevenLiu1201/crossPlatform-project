@@ -1,3 +1,4 @@
+// contain all dog breeds (for dog breeds section)
 let allBreeds = []
 
 // dynamic url
@@ -52,12 +53,12 @@ async function getAllBreeds() {
 
     while (done) {
       const result = await getDogs_breeds(i, 'barking', offset);
-      console.log(result);
+      //console.log(result);
 
       if (offset > 100) {
         done = false;
       } else {
-        if (result){
+        if (result.length >0){
           allBreeds.push(result);
           offset = offset + 20;
         } else {
@@ -71,11 +72,12 @@ async function getAllBreeds() {
 }
 
 // Call the function to make the API calls
-/*
-getAllBreeds().then(result => {
-  console.log("All breeds:", result);
-});
-*/
+
+// getAllBreeds().then(result => {
+//   console.log("All breeds:", result.flat());
+//   allBreeds = allBreeds.flat()
+// });
+
 
 const urlAll = 'https://dogbreeds.p.rapidapi.com/api/dog-breeds/list/profiles'
 const optionsAll = {
