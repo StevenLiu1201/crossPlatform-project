@@ -1,6 +1,6 @@
 .mainContainer {
   background-color: #EEEEEE;
-  
+  font-family:'PT Sans', sans-serif;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
 }
@@ -10,34 +10,44 @@ header {
   grid-column: 2 / span 6; /* Full width header */
 }
 
-
-a{
-  text-decoration: none;
-}
-
 h1 {
   grid-column: 4 / 6;
   text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bolder;
 }
 
 nav{
   display: flex;
   justify-content: space-around;
   background-color: aqua;
- 
+}
+
   
+
+
+nav a{
+  text-decoration: none;
+ 
 }
 
 
 main{
   grid-column: 2 / span 6; /* Main content spans from column 3 to 6 */
-  
-  
 }
 
 section {
   text-align: center;
   background-color: rgb(113, 108, 108);
+  display: flex;
+  flex-direction: column;
+}
+
+.dogBreed{
+  
+  flex-direction: row;
+  justify-content: space-around;
+
 }
 
 footer {
@@ -54,6 +64,16 @@ img{
   
 }
 
+.dogBreedImg{
+  max-width: 800px;
+}
+
+.adviceImg{
+  max-width: 50%;
+ 
+  max-height: 100%; /* Ensure the image does not exceed the container height */
+  object-fit: contain; 
+}
 
 /* .dogFinderImg{
 
