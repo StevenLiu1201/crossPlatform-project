@@ -113,6 +113,7 @@ img{
 } */
 
 /* carousel */
+/* source from https://css-tricks.com/css-only-carousel/ */
 @keyframes tonext {
   75% {
     left: 0;
@@ -184,7 +185,7 @@ ol, li {
   scroll-snap-type: x mandatory;
 }
 
-.carousel__slide {
+.carousel_slide {
   position: relative;
   flex: 0 0 100%;
   width: 100%;
@@ -192,11 +193,11 @@ ol, li {
   counter-increment: item;
 }
 
-.carousel__slide:nth-child(even) {
+.carousel_slide:nth-child(even) {
   background-color: #99f;
 }
 
-.carousel__slide:before {
+.carousel_slide:before {
   content: counter(item);
   position: absolute;
   top: 50%;
@@ -206,7 +207,7 @@ ol, li {
   font-size: 2em;
 }
 
-.carousel__snapper {
+.carousel_snapper {
   position: absolute;
   top: 0;
   left: 0;
@@ -216,30 +217,30 @@ ol, li {
 }
 
 @media (hover: hover) {
-  .carousel__snapper {
+  .carousel_snapper {
     animation-name: tonext, snap;
     animation-timing-function: ease;
     animation-duration: 4s;
     animation-iteration-count: infinite;
   }
 
-  .carousel__slide:last-child .carousel__snapper {
+  .carousel_slide:last-child .carousel_snapper {
     animation-name: tostart, snap;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .carousel__snapper {
+  .carousel_snapper {
     animation-name: none;
   }
 }
 
-.carousel:hover .carousel__snapper,
-.carousel:focus-within .carousel__snapper {
+.carousel:hover .carousel_snapper,
+.carousel:focus-within .carousel_snapper {
   animation-name: none;
 }
 
-.carousel__navigation {
+.carousel_navigation {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -247,12 +248,12 @@ ol, li {
   text-align: center;
 }
 
-.carousel__navigation-list,
-.carousel__navigation-item {
+.carousel_navigation-list,
+.carousel_navigation-item {
   display: inline-block;
 }
 
-.carousel__navigation-button {
+.carousel_navigation-button {
   display: inline-block;
   width: 1.5rem;
   height: 1.5rem;
@@ -266,8 +267,8 @@ ol, li {
 
 .carousel::before,
 .carousel::after,
-.carousel__prev,
-.carousel__next {
+.carousel_prev,
+.carousel_next {
   position: absolute;
   top: 0;
   margin-top: 37.5%;
@@ -280,12 +281,12 @@ ol, li {
 }
 
 .carousel::before,
-.carousel__prev {
+.carousel_prev {
   left: -1rem;
 }
 
 .carousel::after,
-.carousel__next {
+.carousel_next {
   right: -1rem;
 }
 
