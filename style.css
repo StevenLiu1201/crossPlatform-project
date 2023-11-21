@@ -172,7 +172,7 @@ ol, li {
   perspective: 100px;
 }
 
-.carousel__viewport {
+.carousel_viewport {
   position: absolute;
   top: 0;
   right: 0;
