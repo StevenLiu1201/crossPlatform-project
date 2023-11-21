@@ -70,16 +70,22 @@ img{
   
 }
 
+.dogFinderImg {
+  max-width: 800px;
+}
+
 .dogBreedImg{
   max-width: 800px;
 }
 
 .adviceImg{
- 
-  max-height: 100%; /* Ensure the image does not exceed the container height */
+  max-width: 800px; /* Ensure the image does not exceed the container height */
   object-fit: contain; 
 }
 
+.developersImg {
+  max-width: 800px;
+}
 
 .advice{
   background-color: beige;  
@@ -157,6 +163,29 @@ img{
   100% {
     scroll-snap-align: center;
   }
+}
+
+* {
+  box-sizing: border-box;
+  scrollbar-color: transparent transparent; /* thumb and track color */
+  scrollbar-width: 0px;
+}
+
+*::-webkit-scrollbar {
+  width: 0;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: transparent;
+  border: none;
+}
+
+* {
+  -ms-overflow-style: none;
 }
 
 ol, li {
