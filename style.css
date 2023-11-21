@@ -1,5 +1,5 @@
 .mainContainer {
-  background-color: #EEEEEE;
+  background-color: #f3eee8;
   font-family:'PT Sans', sans-serif;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
@@ -20,7 +20,7 @@ h1 {
 nav{
   display: flex;
   justify-content: space-around;
-  background-color: aqua;
+  background-color: #efe2d2;
 }
 
   
