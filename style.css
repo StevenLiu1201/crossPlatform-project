@@ -54,6 +54,37 @@ section {
   background-color: aquamarine;
 
 }
+.dogsContainer{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  justify-content: center;
+  gap: 10px;
+  row-gap: 20px;
+}
+
+.dogcard{
+  border: 2px solid gray;
+}
+
+ /* Pagination styles */
+ .pagination {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: auto;
+}
+
+.pagination li {
+  margin-right: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  color: blue;
+}
+
+.pagination li.active {
+  color: black;
+  font-weight: bold;
+}
 
 footer {
   grid-column: 2 / span 6; /* Full width footer */
