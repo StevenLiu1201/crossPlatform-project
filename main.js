@@ -1,4 +1,4 @@
-const $dogBreedSec = document.querySelector('.dogBreed');
+const $dogsContainer = document.querySelector('.dogsContainer');
 const $frag = document.createDocumentFragment();
 
 // fucntions
@@ -14,33 +14,40 @@ function filterBreeds(breeds,key,value){
 
 // render initial breeds on page
 function renderBreeds(breeds){
-    const $dogsContainer = document.createElement('div');
-    $dogsContainer.className = 'dogsContainer'
 
     breeds.forEach(item => {
         const $dogcard = document.createElement('div');
         $dogcard.className = 'dogcard'
 
+        const $dogImg = document.createElement('img');
+        $dogImg.className = 'dogBreedsImg'
+        $dogImg.src = item.image_link
+        $dogImg.alt = 'dog image'
+
         const $h3 = document.createElement('h3');
         $h3.className = 'dogName'
         $h3.textContent = item.name
 
-        $dogcard.append($h3)
-        $dogsContainer.append($dogcard)
+        $dogcard.append($dogImg,$h3)
+        $frag.append($dogcard)
+        
     });
 
-    $frag.append($dogsContainer)
-    $dogBreedSec.append($frag)
+    $dogsContainer.append($frag)
 
 }
 
+const itemsPerPage = 16;
+const totalPages = 10
+//const totalPages = Math.ceil(dogData.length / itemsPerPage);
+
+
 // render breeds by page
 function showBreedsByPage(pageNumber){
-    const itemsPerPage = 12;
-    let $element = document.querySelector('.dogsContainer');
-    if ($element){
-        //$dogsContainer.innerHTML = ''
-        $element.parentNode.removeChild($element);
+
+    if ($dogsContainer.firstChild){
+        $dogsContainer.textContent = ''
+        //$dogsContainer.removeChild($dogsContainer.firstChild)
 
         renderBreeds(allDogBreedsTest.slice((pageNumber - 1) * itemsPerPage, pageNumber * itemsPerPage))
 
@@ -48,6 +55,38 @@ function showBreedsByPage(pageNumber){
         alert('Please refresh the page, to initialize')
     }
 }
+
+//pagination
+function createPagination() {
+    const $paginationContainer = document.getElementById('pagination');
+    $paginationContainer.innerHTML = '';
+
+    for (let i = 1; i <= totalPages; i++) {
+        const listItem = document.createElement('li');
+        listItem.textContent = i;
+        listItem.addEventListener('click', () => handlePaginationClick(i));
+        $paginationContainer.appendChild(listItem);
+    }
+}
+
+function handlePaginationClick(page) {
+    showBreedsByPage(page);
+
+    // Update active state
+    const paginationItems = document.querySelectorAll('.pagination li');
+    paginationItems.forEach(item => {
+        item.classList.remove('active');
+        if (parseInt(item.textContent) === page) {
+            item.classList.add('active');
+        }
+    });
+}
+
+
+
+
+
+
 
 
 
@@ -72,5 +111,6 @@ allDogBreedsTest = sortBreeds(allDogBreedsTest)
 
 // initial dog breeds
 renderBreeds(allDogBreedsTest.slice(0,12))
+createPagination()
 
 
