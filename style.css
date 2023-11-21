@@ -82,7 +82,11 @@ img{
 
 
 .advice{
-  background-color: beige;
+  background-color: beige;  
+}
+
+.adviceHide{
+  display: none;
 }
 
 
