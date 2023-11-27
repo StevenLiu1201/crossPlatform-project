@@ -54,8 +54,25 @@ section {
 }
 
 /* dog finder section */
+.formFlexContainer{                           /*adjust the location of sliders*/
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.formDiv1{
+  display: flex;
+  flex-direction: column;
+}
+
+.formDiv2{
+  display: flex;
+  flex-direction: column;
+}
 
 
+#submit{
+  margin: 20px 0 20px 0;
+}
 
 /* dog breed section */
 .dogBreed{
@@ -118,32 +135,41 @@ section {
 }
 
 .dogAdvice-content{
-  display: grid;
-  grid-template-columns: 1fr 3fr;
+  display: flex;
+  justify-content: space-around;
+  /* grid-template-columns: 1fr 3fr; */
+  
   justify-content: center;
   align-items: center;
 }
-.advice-imgName{
+/* .advice-imgName{
   justify-self:center ;
-}
+} */
 .advice-imgName img{
   width: 300px;
+  border-radius: 5px;
 }
 .advice-imgName span{
   display: block;
   font-size: 16pt;
+
 }
 
 .dogAttributes_container{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  max-width: 800px;
+  margin: 0 auto;
+  
+}
 
-}
-.attribute{
+/* .attribute{
   justify-self: start;
-}
+} */
+
 .attribute h4{
-  display: inline-block;
+  display: block;          /*put characteristics and stars on different lines*/
+  margin-bottom: 0;        /*eliminate the gap between the characteristics and stars*/  
 }
 
 .advice-description{
@@ -155,11 +181,11 @@ section {
 .stars {
   font-size: 1.2em;
   color: #ffd700; /* yellow color for stars */
-  display: inline-block;
+  display: block; /*put characteristics and stars on different lines*/
 }
 
 .stars.level-1::before {
-  content: '\2605';
+  content: '\2605'; 
 }
 
 .stars.level-2::before {
