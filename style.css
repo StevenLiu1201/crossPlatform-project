@@ -54,7 +54,24 @@ section {
 }
 
 /* dog finder section */
+.formFlexContainer{
+  display: flex;
+  justify-content: space-evenly;
+}
 
+.formDiv1{
+  display: flex;
+  flex-direction: column;
+}
+
+.formDiv2{
+  display: flex;
+  flex-direction: column;
+}
+
+#submit{
+  margin: 20px 0 20px 0;
+}
 
 
 /* dog breed section */
