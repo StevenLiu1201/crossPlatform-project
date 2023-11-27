@@ -307,6 +307,11 @@ ol, li {
   counter-reset: item;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.carousel_viewport::-webkit-scrollbar {
+  display: none;
 }
 
 .carousel_slide {
