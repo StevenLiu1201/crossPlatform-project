@@ -54,7 +54,14 @@ section {
 }
 
 /* dog finder section */
+.dogFinder {
+  background-color: #C49368;
+}
 
+.dogFinderSearch {
+  border: 5px solid#716358;
+  border-radius: 5px;
+}
 
 
 /* dog breed section */
@@ -183,7 +190,12 @@ section {
 
 
 /* developer section */
-
+.developerContainer{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 10px;
+  margin: 10px;
+}
 
 
 
@@ -195,14 +207,6 @@ footer {
 }
 
 
-
-/* developer */
-.developerContainer{
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 10px;
-  margin: 10px;
-}
 
 
 
