@@ -55,6 +55,8 @@ function renderBreeds(breeds){
 
 }
 
+
+
 const itemsPerPage = 16;
 const totalPages = Math.ceil(155 / itemsPerPage);
 //const totalPages = Math.ceil(dogData.length / itemsPerPage);
