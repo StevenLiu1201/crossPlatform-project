@@ -20,11 +20,11 @@ function createAttributesObj(dogInfo_obj){
     attributs['Friendly with children'] = dogInfo_obj['good_with_children']
     attributs['Shedding'] = dogInfo_obj['shedding']
     attributs['Grooming'] = dogInfo_obj['grooming']
-    attributs['playfulness'] = dogInfo_obj['playfulness']
-    attributs['protectiveness'] = dogInfo_obj['protectiveness']
-    attributs['trainability'] = dogInfo_obj['trainability']
-    attributs['energy'] = dogInfo_obj['energy']
-    attributs['barking'] = dogInfo_obj['barking']
+    attributs['Playfulness'] = dogInfo_obj['playfulness']
+    attributs['Protectiveness'] = dogInfo_obj['protectiveness']
+    attributs['Trainability'] = dogInfo_obj['trainability']
+    attributs['Energy'] = dogInfo_obj['energy']
+    attributs['Barking'] = dogInfo_obj['barking']
 
     return attributs
 

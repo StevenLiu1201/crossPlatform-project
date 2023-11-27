@@ -169,7 +169,8 @@ section {
 
 .attribute h4{
   display: block;          /*put characteristics and stars on different lines*/
-  margin-bottom: 0;        /*eliminate the gap between the characteristics and stars*/  
+  margin-bottom: 0;        /*eliminate the gap between the characteristics and stars*/ 
+  text-align: left; 
 }
 
 .advice-description{
@@ -182,6 +183,7 @@ section {
   font-size: 1.2em;
   color: #ffd700; /* yellow color for stars */
   display: block; /*put characteristics and stars on different lines*/
+  text-align: left;
 }
 
 .stars.level-1::before {
