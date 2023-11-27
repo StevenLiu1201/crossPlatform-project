@@ -12,7 +12,7 @@ img{
 }
 
 header {
-  grid-column: 2 / span 6; /* Full width header */
+  grid-column: 2 / 8; /* Full width header */
 }
 
 h1 {
