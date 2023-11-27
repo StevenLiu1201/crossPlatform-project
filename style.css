@@ -54,25 +54,8 @@ section {
 }
 
 /* dog finder section */
-.formFlexContainer{                           /*adjust the location of sliders*/
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.formDiv1{
-  display: flex;
-  flex-direction: column;
-}
-
-.formDiv2{
-  display: flex;
-  flex-direction: column;
-}
 
 
-#submit{
-  margin: 20px 0 20px 0;
-}
 
 /* dog breed section */
 .dogBreed{
@@ -209,7 +192,12 @@ section {
 
 
 /* developer section */
-
+.developerContainer{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 10px;
+  margin: 10px;
+}
 
 
 
@@ -219,8 +207,6 @@ footer {
   background-color: aqua;
   text-align: center;
 }
-
-
 
 
 
