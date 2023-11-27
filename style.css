@@ -291,7 +291,7 @@ ol, li {
 
 .carousel {
   position: relative;
-  padding-top: 75%;
+  padding-top: 50%;
   filter: drop-shadow(0 0 10px #0003);
   perspective: 100px;
 }
@@ -329,6 +329,7 @@ ol, li {
   transform: translate3d(-50%,-40%,70px);
   color: #fff;
   font-size: 2em;
+  display: none;
 }
 
 .carousel_snapper {
