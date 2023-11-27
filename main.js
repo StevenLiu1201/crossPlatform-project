@@ -14,6 +14,7 @@ function filterBreeds(breeds,key,value){
     return breeds.filter(item => item[key] == value)
 }
 
+
 // create dog attribute obj
 function createAttributesObj(dogInfo_obj){
     let attributs = {}
@@ -102,7 +103,7 @@ function handlePaginationClick(page) {
 }
 
 //create element for dog advice
-function createHTML_dogAdvice(dogInfo_list1,attributes){
+function createHTML_dogDescribe(dogInfo_list1,attributes){
     const $frag = document.createDocumentFragment()
     
 
@@ -165,6 +166,52 @@ function createHTML_dogAdvice(dogInfo_list1,attributes){
 
 }
 
+// create the HTML element for the secound part in dog advice
+function createHTML_dogAdvice(dogName){
+    const $frag = document.createDocumentFragment();
+
+    let describesParagraph = ''
+    // get dog slug based on dog name
+    const dog = allDogBreeds.filter(item => item['name'] == dogName)
+    // if find the dog slug
+    if(dog.length>0){
+        const dogSlug = dog[0]['slug']
+        console.log(dogSlug);
+
+        // get the return from new API
+        /*
+        getOne(dogSlug).then(result => {
+            console.log(result);
+            // if not return
+            if(result[0]['more_about'].length > 0){
+                const descripContents_list = result[0]['more_about'][0]['more_about_description']
+                console.log(descripContents_list);
+                descripContents_list.forEach(des => describesParagraph += des['description'])
+                console.log(describesParagraph);
+            }else{
+                console.log('sorry, there is no description find from API');
+                describesParagraph = "Raising a happy and healthy dog involves providing a balanced diet, regular exercise, and veterinary care. Early training and socialization are crucial, along with grooming and mental stimulation. Create a safe and comfortable environment, use positive reinforcement for good behavior, and invest time in building a strong bond through love and attention. Be patient, consistent, and prepared for emergencies, ensuring your dog's well-being and a fulfilling companionship."
+            }
+
+        })
+        */
+       
+    }else{
+        console.log('no find dog slug'); 
+        describesParagraph = "Raising a happy and healthy dog involves providing a balanced diet, regular exercise, and veterinary care. Early training and socialization are crucial, along with grooming and mental stimulation. Create a safe and comfortable environment, use positive reinforcement for good behavior, and invest time in building a strong bond through love and attention. Be patient, consistent, and prepared for emergencies, ensuring your dog's well-being and a fulfilling companionship."
+    }
+
+    const $p = document.createElement('p')
+    $p.textContent = describesParagraph
+    $frag.append($p)
+
+  
+
+
+    return $frag
+
+}
+
 // handle dogcard click
 function showDogAdvice_byElement(e){
     console.log(e);
@@ -177,12 +224,15 @@ function showDogAdvice_byElement(e){
     // prepare info for rendering
     const attributes = createAttributesObj(dogDetail_list[0])
 
-    // get the html for advice
-    const $advice = createHTML_dogAdvice(dogDetail_list[0],attributes)
+    // get the html for dogDescribe
+    const $dogDescribe = createHTML_dogDescribe(dogDetail_list[0],attributes)
+
+    //get the html for brief for the dog from other API
+    const $dogAdvice = createHTML_dogAdvice(dogName)
 
     //render on the page
     $advice_content.innerHTML=''
-    $advice_content.append($advice)
+    $advice_content.append($dogDescribe,$dogAdvice)
 
 
     

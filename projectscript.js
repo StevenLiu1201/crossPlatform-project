@@ -99,18 +99,21 @@ async function getAll() {
   }
 }
 
+function getBriefAPI_byDogName(dogName){
+  return `https://dogbreeds.p.rapidapi.com/api/dog-breeds/${dogName}`
+}
 const urlone = 'https://dogbreeds.p.rapidapi.com/api/dog-breeds/shiba-inu'
 const optionsone = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': 'bbda02016amshccb22789404656cp117221jsn2390d8e2f0c8',
+		'X-RapidAPI-Key': 'ed3781ff29msha74531b722d7298p18f0a6jsn4b56e776069e',
 		'X-RapidAPI-Host': 'dogbreeds.p.rapidapi.com'
 	}
 }
 
-async function getOne() {
+async function getOne(dogName) {
   try {
-    const response = await fetch(urlone, optionsone)
+    const response = await fetch(getBriefAPI_byDogName(dogName), optionsone)
     const result = await response.json()
     console.log(result)
     return result
