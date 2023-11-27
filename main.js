@@ -2,6 +2,7 @@ const $dogsContainer = document.querySelector('.dogsContainer');
 const $frag = document.createDocumentFragment();
 const $advice_section = document.querySelector('.advice-section')
 const $advice_content = document.querySelector('.dogAdvice-content')
+const $dogAdvice_description = document.querySelector('.dogAdvice-description')
 
 // fucntions
 // sort by name
@@ -154,6 +155,7 @@ function createHTML_dogDescribe(dogInfo_list1,attributes){
 
 
     // description
+    /*
     const $description = document.createElement('div')
     $description.className = 'advice-description'
 
@@ -162,8 +164,9 @@ function createHTML_dogDescribe(dogInfo_list1,attributes){
 
     $description.append($desc_content)
 
+    */
 
-    $frag.append($div,$attContainer,$description)
+    $frag.append($div,$attContainer)
     return $frag
 
 }
@@ -197,11 +200,14 @@ function createHTML_dogAdvice(dogName){
 
         })
         */
-       
+
     }else{
         console.log('no find dog slug'); 
         describesParagraph = "Raising a happy and healthy dog involves providing a balanced diet, regular exercise, and veterinary care. Early training and socialization are crucial, along with grooming and mental stimulation. Create a safe and comfortable environment, use positive reinforcement for good behavior, and invest time in building a strong bond through love and attention. Be patient, consistent, and prepared for emergencies, ensuring your dog's well-being and a fulfilling companionship."
     }
+
+    // for now, will delete
+    describesParagraph = "Raising a happy and healthy dog involves providing a balanced diet, regular exercise, and veterinary care. Early training and socialization are crucial, along with grooming and mental stimulation. Create a safe and comfortable environment, use positive reinforcement for good behavior, and invest time in building a strong bond through love and attention. Be patient, consistent, and prepared for emergencies, ensuring your dog's well-being and a fulfilling companionship."
 
     const $p = document.createElement('p')
     $p.textContent = describesParagraph
@@ -234,7 +240,10 @@ function showDogAdvice_byElement(e){
 
     //render on the page
     $advice_content.innerHTML=''
-    $advice_content.append($dogDescribe,$dogAdvice)
+    $advice_content.append($dogDescribe)
+
+    $dogAdvice_description.innerHTML = ''
+    $dogAdvice_description.append($dogAdvice)
 
 
     

@@ -136,7 +136,7 @@ section {
 
 .dogAdvice-content{
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   /* grid-template-columns: 1fr 3fr; */
   
   justify-content: center;
@@ -148,6 +148,7 @@ section {
 .advice-imgName img{
   width: 300px;
   border-radius: 5px;
+  margin-left: 20px;
 }
 .advice-imgName span{
   display: block;
@@ -173,9 +174,6 @@ section {
   text-align: left; 
 }
 
-.advice-description{
-  grid-column:1/3 ;
-}
 
 
 /* rateing stars */
