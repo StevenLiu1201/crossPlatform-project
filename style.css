@@ -61,7 +61,7 @@ section {
 .dogBreed{
   flex-direction: column;
   justify-content: space-around;
-  background-color: #EEEEEE;
+  background-color: #efe2d2;
 
 }
 .dogsContainer{
@@ -110,7 +110,7 @@ section {
 
 /* advice and care section */
 .advice-section{
-  background-color: beige;  
+  background-color: #C49368;  
 }
 
 .adviceHide{
