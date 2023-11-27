@@ -202,18 +202,16 @@ footer {
 /* carousel */
 
 .dogFinderImg {
-  max-width: 800px;
+  width: 100%;
 }
-.dogBreedsImg{
-  width: 320px;
-  padding: 5px;
+.dogBreedImg{
+  width: 100%;
 }
 .adviceImg{
-  max-width: 800px; /* Ensure the image does not exceed the container height */
-  object-fit: contain; 
+  width: 100%;
 }
 .developersImg {
-  max-width: 800px;
+  width: 100%;
 }
 
 /* source from https://css-tricks.com/css-only-carousel/ */
