@@ -1,5 +1,7 @@
 const $dogsContainer = document.querySelector('.dogsContainer');
 const $frag = document.createDocumentFragment();
+const $advice_section = document.querySelector('.advice-section')
+const $advice_content = document.querySelector('.dogAdvice-content')
 
 // fucntions
 // sort by name
@@ -10,6 +12,22 @@ function sortBreeds(breeds){
 // filter by parameter
 function filterBreeds(breeds,key,value){
     return breeds.filter(item => item[key] == value)
+}
+
+// create dog attribute obj
+function createAttributesObj(dogInfo_obj){
+    let attributs = {}
+    attributs['Friendly with children'] = dogInfo_obj['good_with_children']
+    attributs['Shedding'] = dogInfo_obj['shedding']
+    attributs['Grooming'] = dogInfo_obj['grooming']
+    attributs['playfulness'] = dogInfo_obj['playfulness']
+    attributs['protectiveness'] = dogInfo_obj['protectiveness']
+    attributs['trainability'] = dogInfo_obj['trainability']
+    attributs['energy'] = dogInfo_obj['energy']
+    attributs['barking'] = dogInfo_obj['barking']
+
+    return attributs
+
 }
 
 // render initial breeds on page
@@ -38,7 +56,7 @@ function renderBreeds(breeds){
 }
 
 const itemsPerPage = 16;
-const totalPages = 10
+const totalPages = Math.ceil(155 / itemsPerPage);
 //const totalPages = Math.ceil(dogData.length / itemsPerPage);
 
 
@@ -49,6 +67,7 @@ function showBreedsByPage(pageNumber){
         $dogsContainer.textContent = ''
         //$dogsContainer.removeChild($dogsContainer.firstChild)
 
+        // finnally, change it to allbreeds
         renderBreeds(allDogBreedsTest.slice((pageNumber - 1) * itemsPerPage, pageNumber * itemsPerPage))
 
     }else{
@@ -82,6 +101,92 @@ function handlePaginationClick(page) {
     });
 }
 
+//create element for dog advice
+function createHTML_dogAdvice(dogInfo_list1,attributes){
+    const $frag = document.createDocumentFragment()
+    
+
+    const $div = document.createElement('div')
+    $div.className='advice-imgName'
+
+    const $img = document.createElement('img')
+    $img.src = dogInfo_list1.image_link
+    $img.alt = 'picture of dog'
+
+    const $span = document.createElement('span')
+    $span.textContent = dogInfo_list1.name
+
+    $div.append($img,$span)
+
+
+    const $attContainer = document.createElement('div')
+    $attContainer.className = "dogAttributes_container"
+
+    for (const a in attributes) {
+       const $attri = document.createElement('div')
+       $attri.className = 'attribute'
+   
+       const $attri_name = document.createElement('h4')
+       $attri_name.textContent = a
+   
+       const $attri_star = document.createElement('span')
+       $attri_star.className = 'stars'
+       $attri_star.classList.add(`level-${attributes[a]}`)
+   
+       $attri.append($attri_name,$attri_star)
+       $attContainer.append($attri)
+    }
+
+    const $attri = document.createElement('div')
+    $attri.className = 'attribute'
+
+    const $attri_name = document.createElement('h4')
+    $attri_name.textContent = 'Max life expectancy'
+
+    const $attri_value = document.createElement('span')
+    $attri_value.textContent = dogInfo_list1['max_life_expectancy']
+
+    $attri.append($attri_name,$attri_value)
+    $attContainer.append($attri)
+
+
+    // description
+    const $description = document.createElement('div')
+    $description.className = 'advice-description'
+
+    const $desc_content = document.createElement('p')
+    $desc_content.textContent = 'dog description and advice. create this from new API'
+
+    $description.append($desc_content)
+
+
+    $frag.append($div,$attContainer,$description)
+    return $frag
+
+}
+
+// handle dogcard click
+function showDogAdvice_byElement(e){
+    console.log(e);
+    const dogName = e.querySelector('.dogName').textContent
+
+    // finally, change the allDogBreedsTest to all breeds from api
+    const dogDetail_list = filterBreeds(allDogBreedsTest,'name',dogName)
+    console.log(dogDetail_list);
+
+    // prepare info for rendering
+    const attributes = createAttributesObj(dogDetail_list[0])
+
+    // get the html for advice
+    const $advice = createHTML_dogAdvice(dogDetail_list[0],attributes)
+
+    //render on the page
+    $advice_content.innerHTML=''
+    $advice_content.append($advice)
+
+
+    
+}
 
 
 
@@ -93,6 +198,7 @@ function handlePaginationClick(page) {
 
 // get the all dog breeds list from API
 // this is for the final version
+
 /*
 getAllBreeds().then(result => {
     // sort the list
@@ -100,7 +206,15 @@ getAllBreeds().then(result => {
     console.log("All breeds:", allBreeds);
 
     // take the first 12 result and render on the page
-    renderBreeds(allBreeds.slice(0,12))
+    renderBreeds(allBreeds.slice(0,16))
+
+    //create pagination
+    createPagination()
+
+    // add handler on dog cards
+    document.querySelector('.dogsContainer').addEventListener('click',function(e){
+        showDogAdvice_byElement(e.target.closest('.dogcard'))
+    })
     
 
 });
@@ -110,7 +224,11 @@ getAllBreeds().then(result => {
 allDogBreedsTest = sortBreeds(allDogBreedsTest)
 
 // initial dog breeds
-renderBreeds(allDogBreedsTest.slice(0,12))
+renderBreeds(allDogBreedsTest.slice(0,16))
 createPagination()
+
+document.querySelector('.dogsContainer').addEventListener('click',function(e){
+    showDogAdvice_byElement(e.target.closest('.dogcard'))
+})
 
 
