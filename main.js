@@ -242,16 +242,16 @@ function showDogAdvice_byElement(e){
 
     //render on the page
     $advice_content.innerHTML=''
-    $advice_content.classList.remove('adviceHide')
     $advice_content.append($dogDescribe)
 
     $dogAdvice_description.innerHTML = ''
-    $dogAdvice_description.classList.remove('adviceHide')
     $dogAdvice_description.append($dogAdvice)
+
+    $advice_section.classList.remove('adviceHide')
 
 
     //scolling down to advice section
-    $advice_content.scrollIntoView({ behavior: "smooth" });
+    $advice_section.scrollIntoView({ behavior: "smooth" });
 
 
 
