@@ -231,13 +231,19 @@ section p{
 
 
 /* developer section */
+.developer {
+  grid-column: 1/9;
+}
+
 .developerContainer{
+  grid-column: 1/9;
   display: grid;
   grid-template-columns: repeat(3,1fr);
   gap: 10px;
   margin: 10px;
   background-color: #C49368;
   border-radius: 5px;
+  padding:10px;
 }
 
 
