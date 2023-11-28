@@ -6,13 +6,10 @@
 }
 img{
   max-width: 100%; /*Set max-width to prevent image overflow*/
-  grid-column: 2 / 8;
-  
-  
 }
 
 header {
-  grid-column: 2 / 8; /* Full width header */
+  grid-column: 1 / 9; /* Full width header */
 }
 
 h1 {
@@ -25,11 +22,14 @@ h1 {
 nav{
   display: flex;
   justify-content: space-around;
+  align-items: center;
   background-color: #efe2d2;
   font-size: 25px;
 }
 
-  
+.logo{
+  width: 20%;
+}
 
 
 nav a{
@@ -46,7 +46,7 @@ nav a{
 
 
 main{
-  grid-column: 2 / span 6; /* Main content spans from column 3 to 6 */
+  grid-column: 1 / 9; /* Main content spans from column 3 to 6 */
 }
 
 section p{
@@ -252,7 +252,7 @@ section p{
 /* footer */
 footer {
   grid-column: 2 / span 6; /* Full width footer */
-  background-color: #f3eee8;
+  background-color: aqua;
   text-align: center;
 }
 
