@@ -33,6 +33,8 @@ nav a{
 /* section header */
 .sec_header{
   background-color: #f3eee8;
+  text-align: center;
+
 }
 /* section background */
 
@@ -123,6 +125,7 @@ main{
   list-style: none;
   padding: 0;
   margin: auto;
+  justify-content: center;
 }
 
 .pagination li {
