@@ -245,7 +245,7 @@ section p{
 /* footer */
 footer {
   grid-column: 1 / 9; /* Full width footer */
-  background-color: aqua;
+  background-color: #f3eee8;
   text-align: center;
 }
 
