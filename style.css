@@ -90,6 +90,10 @@ main{
   justify-content: space-around;
 
 }
+.dogBreeds_content{
+  background-color: #efe2d2;
+  border-radius: 5px;
+}
 
 .dogsContainer{
   display: grid;
@@ -97,8 +101,6 @@ main{
   justify-content: center;
   gap: 10px;
   row-gap: 20px;
-  background-color: #efe2d2;
-  border-radius: 5px;
   padding: 10px;
 }
 
@@ -131,7 +133,7 @@ main{
   margin-right: 10px;
   cursor: pointer;
   font-size: 20pt;
-  color: blue;
+  color:dimgray;
 }
 
 .pagination li.active {
