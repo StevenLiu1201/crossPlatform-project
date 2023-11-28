@@ -42,7 +42,7 @@ main{
   grid-column: 1 / 9; /* Main content spans from column 3 to 6 */
 }
 
-section p{
+#puppedia{
   text-align: center;
   /* background-color: #efe2d2; */
   background-color: #C49368;
@@ -240,7 +240,6 @@ section p{
   display: grid;
   grid-template-columns: repeat(3,1fr);
   gap: 10px;
-  margin: 10px;
   background-color: #C49368;
   border-radius: 5px;
   padding:10px;
