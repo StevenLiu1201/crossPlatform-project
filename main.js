@@ -1,4 +1,4 @@
-// Zhongrui Liu
+// Created by Zhongrui Liu
 
 const $dogsContainer = document.querySelector('.dogsContainer');
 const $frag = document.createDocumentFragment();

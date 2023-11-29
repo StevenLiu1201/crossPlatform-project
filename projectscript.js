@@ -1,3 +1,5 @@
+// create by Ka Kei Cheung and updates by Zhongrui Liu
+
 // contain all dog breeds (for dog breeds section)
 let allBreeds = []
 

@@ -1,3 +1,4 @@
+/*create by Pak Nin Poon*/
 body {
   background-color: #f3eee8;
   font-family:'PT Sans', sans-serif;
@@ -21,7 +22,6 @@ nav{
   background-color: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(10px);                      /*give blur effect*/
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  /* background-color: #f3eee8; */
   font-size: 18px;
   font-weight: bolder;
   max-height: 10%;
@@ -70,7 +70,7 @@ main{
 
 
 
-/* dog finder section */
+/* dog finder section by Ka Kei Cheung */
 .dogFinderSearch {
   text-align: center;
   background-color: #efe2d2;
@@ -118,7 +118,7 @@ input[type="range"] {
 }
 
 
-/* dog breed section */
+/* dog breed section by Pak Nin Poon*/
 .dogBreed{
   flex-direction: column;
   justify-content: space-around;
@@ -154,7 +154,7 @@ input[type="range"] {
 
 
 
- /* Pagination styles */
+ /* Pagination styles by Pak Nin Poon*/
  .pagination {
   display: flex;
   list-style: none;
@@ -225,7 +225,7 @@ input[type="range"] {
 
 
 
-/* rateing stars */
+/* rateing stars by Zhongrui Liu*/
 .stars {
   font-size: 1.2em;
   color: #ffd700; /* yellow color for stars */
@@ -257,7 +257,7 @@ input[type="range"] {
 
 
 
-/* developer section */
+/* developer section by Ka Kei Cheung*/
 .developer {
   grid-column: 1/9;
 }
@@ -274,7 +274,7 @@ input[type="range"] {
 
 
 
-/* footer */
+/* footer by Pak Nin Poon*/
 footer {
   grid-column: 1 / 9; /* Full width footer */
   background-color: #f3eee8;
@@ -289,7 +289,7 @@ footer {
 
 
 
-/* carousel */
+/* carousel by Ka Kei Cheung*/
 
 .dogFinderImg {
   width: 100%;
