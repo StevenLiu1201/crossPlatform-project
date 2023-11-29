@@ -205,7 +205,7 @@ input[type="range"] {
 .advice-imgName span{
   display: block;
   font-size: 16pt;
-
+  text-align: center;
 }
 
 .dogAttributes_container{
