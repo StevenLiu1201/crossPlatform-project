@@ -118,7 +118,7 @@ input[type="range"] {
 }
 
 
-/* dog breed section by Pak Nin Poon*/
+/* dog breed section by Pak Nin Poon */
 .dogBreed{
   flex-direction: column;
   justify-content: space-around;
@@ -154,7 +154,7 @@ input[type="range"] {
 
 
 
- /* Pagination styles by Pak Nin Poon*/
+ /* Pagination styles by  Pak Nin Poon / Zhongrui Liu */
  .pagination {
   display: flex;
   list-style: none;
@@ -176,7 +176,7 @@ input[type="range"] {
 }
 
 
-
+/* advice section Zhongrui Liu */
 .adviceHide{
   display: none;
 }
