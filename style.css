@@ -380,6 +380,7 @@ ol, li {
 }
 
 .carousel {
+  background-color: #efe2d2;
   position: relative;
   z-index: 1;
   padding-top: 50%;
@@ -389,10 +390,10 @@ ol, li {
 
 .carousel_viewport {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  top: 80px;
+  right: 10px;
+  bottom: 10px;
+  left: 10px;
   display: flex;
   overflow-x: scroll;
   counter-reset: item;
