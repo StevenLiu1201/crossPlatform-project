@@ -298,4 +298,3 @@ document.querySelector('.dogsContainer').addEventListener('click',function(e){
     showDogAdvice_byElement(e.target.closest('.dogcard'))
 })
 
-
