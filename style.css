@@ -4,6 +4,7 @@ body {
   margin: 0;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
+  overflow-x: hidden; /*remove the little space at the bottom*/
 }
 img{
   max-width: 100%; /*Set max-width to prevent image overflow*/
@@ -17,25 +18,38 @@ nav{
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #efe2d2;
-  font-size: 25px;
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);                      /*give blur effect*/
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* background-color: #f3eee8; */
+  font-size: 18px;
+  font-weight: bolder;
+  max-height: 10%;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;              /*remove the gap on both sides*/
+  
 }
 
 .logo{
-  width: 20%;
+  width: 15%;
+  margin-left: 0;
 }
-
 
 nav a{
   text-decoration: none;
- 
+  color: #000;
+  transition: color 0.2s ease-in-out;
+}
+
+nav a:hover{
+  color: #F64C72;  
 }
 
 /* section header */
 .sec_header{
   background-color: #f3eee8;
   text-align: center;
-
 }
 /* section background */
 
@@ -51,6 +65,7 @@ main{
   display: flex;
   flex-direction: column;
   border-radius: 5px;
+  padding: 20px 0 20px 0;
 }
 
 
@@ -66,21 +81,40 @@ main{
 
 .formFlexContainer{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .formDiv1{
   display: flex;
   flex-direction: column;
+  margin: 0 90px 0 0;
 }
 
 .formDiv2{
   display: flex;
   flex-direction: column;
+  margin: 0 0 0 90px;
+}
+
+input[type="range"] {
+  width: 300px;
+}
+
+#reset {
+  color: white;
+  background-color: #3273F6;
+  border-radius: 5px;
+  margin: 2px;
 }
 
 #submit{
   margin: 20px 0 20px 0;
+  color: white;
+  background-color: #3273F6;
+  border-radius: 5px;
+  margin-top: 0;
+  margin-bottom: 20px;
 }
 
 
@@ -99,23 +133,23 @@ main{
   display: grid;
   grid-template-columns: repeat(4,1fr);
   justify-content: center;
-  gap: 10px;
-  row-gap: 20px;
-  padding: 10px;
+  gap: 1rem;
+  padding: 20px;
 }
 
 .dogcard{
   border: 1px solid rgb(199, 196, 196);
-  border-radius: 5%;
+  border-radius: 10px;
   background-color: white;
+  text-align: center;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   padding: 10px;
 }
 
-.dogBreedsimg {
+.dogBreedsImg {
   width: 100%;
-  border: 2px solid#000;
+  border-radius: 5px;
 }
 
 
@@ -347,6 +381,7 @@ ol, li {
 
 .carousel {
   position: relative;
+  z-index: 1;
   padding-top: 50%;
   filter: drop-shadow(0 0 10px #0003);
   perspective: 100px;
