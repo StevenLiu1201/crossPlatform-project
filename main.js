@@ -124,6 +124,10 @@ function handleFormSubmit(newBreedsList){
 
 }
 
+// display formvalue
+
+
+
 // create HTML element 
 //create element for dog advice
 function createHTML_dogDescribe(dogInfo_list1,attributes){
@@ -256,6 +260,7 @@ function showDogAdvice_byElement(e){
 }
 
 // Created by Ka Kei Cheung
+// function searchBreeds
 function searchBreeds(input) {
     const dogName = document.querySelectorAll('.dogName')
     dogName.forEach((content)=>{
@@ -269,6 +274,7 @@ function searchBreeds(input) {
     })
 }
 
+// eventListener on the userinputs
 const userInput = document.getElementById('inputText')
 userInput.addEventListener('input', (e)=>{
     const userInput = search.Breeds.value.toUpperCase()
