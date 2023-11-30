@@ -57,6 +57,7 @@ nav a:hover{
 
 main{
   grid-column: 1 / 9; /* Main content spans from column 3 to 6 */
+  padding-top: 80px;
 }
 
 #puppedia{
@@ -118,7 +119,35 @@ input[type="range"] {
 }
 
 
-/* dog breed section by Pak Nin Poon */
+/* dog breed section by Pak Nin Poon and Ka Kei Cheung*/
+#searchBreeds {
+  display: flex;
+  justify-content: flex-end;
+}
+#inputText {
+  width: 30%;
+  font-size: 15px;
+  font-family:'PT Sans', sans-serif;
+  border: 3px solid #3273F6;
+  outline: none;
+}
+
+#inputText:focus {
+  color: #6632f6;
+}
+
+.submitButton {
+  width: 30px;
+  height: 27px;
+  border: 1px solid #3273F6;
+  background: #3273F6;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 10px 10px 0;
+  cursor: pointer;
+  font-size: 15px;
+}
+
 .dogBreed{
   flex-direction: column;
   justify-content: space-around;
@@ -206,7 +235,7 @@ input[type="range"] {
 .advice-imgName span{
   display: block;
   font-size: 16pt;
-
+  text-align: center;
 }
 
 .dogAttributes_container{
@@ -214,7 +243,7 @@ input[type="range"] {
   grid-template-columns: 1fr 1fr 1fr;
   max-width: 800px;
   margin: 0 auto;
-  
+  gap: 10px;
 }
 
 

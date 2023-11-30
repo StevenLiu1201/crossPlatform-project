@@ -124,6 +124,40 @@ function handleFormSubmit(newBreedsList){
 
 }
 
+// display formvalue (Create by Ka Kei Cheung)
+const good_with_children_value = document.querySelector('.good_with_children_value')
+const good_with_children = document.querySelector('#good_with_children')
+good_with_children.addEventListener('input', ()=>good_with_children_value.textContent = searchForm.good_with_children.value)
+
+const shedding_value = document.querySelector('.shedding_value')
+const shedding = document.querySelector('#shedding')
+shedding.addEventListener('input', ()=>shedding_value.textContent = searchForm.shedding.value)
+
+const grooming_value = document.querySelector('.grooming_value')
+const grooming = document.querySelector('#grooming')
+grooming.addEventListener('input', ()=>grooming_value.textContent = searchForm.grooming.value)
+
+const playfulness_value = document.querySelector('.playfulness_value')
+const playfulness = document.querySelector('#playfulness')
+playfulness.addEventListener('input', ()=>playfulness_value.textContent = searchForm.playfulness.value)
+
+const protectiveness_value = document.querySelector('.protectiveness_value')
+const protectiveness = document.querySelector('#protectiveness')
+protectiveness.addEventListener('input', ()=>protectiveness_value.textContent = searchForm.protectiveness.value)
+
+const trainability_value = document.querySelector('.trainability_value')
+const trainability = document.querySelector('#trainability')
+trainability.addEventListener('input', ()=>trainability_value.textContent = searchForm.trainability.value)
+
+const energy_value = document.querySelector('.energy_value')
+const energy = document.querySelector('#energy')
+energy.addEventListener('input', ()=>energy_value.textContent = searchForm.energy.value)
+
+const barking_value = document.querySelector('.barking_value')
+const barking = document.querySelector('#barking')
+barking.addEventListener('input', ()=>barking_value.textContent = searchForm.barking.value)
+
+
 // create HTML element 
 //create element for dog advice
 function createHTML_dogDescribe(dogInfo_list1,attributes){
@@ -255,10 +289,26 @@ function showDogAdvice_byElement(e){
     $advice_section.scrollIntoView({ behavior: "smooth" });
 }
 
+// function searchBreeds (Created by Ka Kei Cheung)
+function searchBreeds(input) {
+    const dogName = document.querySelectorAll('.dogName')
+    dogName.forEach((content)=>{
+        const dogContent = content.textContent.toUpperCase()
+        const dogCardContainer = content.closest('.dogcard')
+        if ( dogContent.includes(input)) {
+            dogCardContainer.style.display = 'block'
+        } else {
+            dogCardContainer.style.display = 'none'
+        }
+    })
+}
 
-
-
-
+// eventListener on the userinputs (Created by Ka Kei Cheung)
+const userInput = document.getElementById('inputText')
+userInput.addEventListener('input', (e)=>{
+    const userInput = search.Breeds.value.toUpperCase()
+    searchBreeds(userInput)
+})
 
 
 
@@ -297,5 +347,4 @@ createPagination(totalPages)
 document.querySelector('.dogsContainer').addEventListener('click',function(e){
     showDogAdvice_byElement(e.target.closest('.dogcard'))
 })
-
 
