@@ -126,14 +126,17 @@ input[type="range"] {
 /* dog breed section by Pak Nin Poon and Ka Kei Cheung*/
 #searchBreeds {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  margin-bottom: 25px;
 }
+
 #inputText {
   width: 30%;
   font-size: 15px;
   font-family:'PT Sans', sans-serif;
   border: 3px solid #3273F6;
   outline: none;
+  border-radius: 10px 0 0 10px;
 }
 
 #inputText:focus {
