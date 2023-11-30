@@ -127,6 +127,7 @@ input[type="range"] {
 .dogBreeds_content{
   background-color: #efe2d2;
   border-radius: 5px;
+  /* height: 1220px; */
 }
 
 .dogsContainer{

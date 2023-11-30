@@ -71,7 +71,7 @@ function renderBreeds(breeds){
 function showBreedsByPage(breeds,pageNumber){
 
     if ($dogsContainer.firstChild){
-        $dogsContainer.textContent = ''
+        $dogsContainer.innerHTML = ''
 
         // finnally, change it to allbreeds
         renderBreeds(breeds.slice((pageNumber - 1) * itemsPerPage, pageNumber * itemsPerPage))
