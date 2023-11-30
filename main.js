@@ -124,8 +124,39 @@ function handleFormSubmit(newBreedsList){
 
 }
 
+// Create by Ka Kei Cheung
 // display formvalue
+const good_with_children_value = document.querySelector('.good_with_children_value')
+const good_with_children = document.querySelector('#good_with_children')
+good_with_children.addEventListener('input', ()=>good_with_children_value.textContent = searchForm.good_with_children.value)
 
+const shedding_value = document.querySelector('.shedding_value')
+const shedding = document.querySelector('#shedding')
+shedding.addEventListener('input', ()=>shedding.textContent = searchForm.shedding.value)
+
+const grooming_value = document.querySelector('.grooming_value')
+const grooming = document.querySelector('#grooming')
+grooming.addEventListener('input', ()=>grooming.textContent = searchForm.grooming.value)
+
+const playfulness_value = document.querySelector('.playfulness_value')
+const playfulness = document.querySelector('#playfulness')
+playfulness.addEventListener('input', ()=>playfulness.textContent = searchForm.playfulness.value)
+
+const protectiveness_value = document.querySelector('.protectiveness_value')
+const protectiveness = document.querySelector('#protectiveness')
+protectiveness.addEventListener('input', ()=>protectiveness.textContent = searchForm.protectiveness.value)
+
+const trainability_value = document.querySelector('.trainability_value')
+const trainability = document.querySelector('#trainability')
+trainability.addEventListener('input', ()=>trainability.textContent = searchForm.trainability.value)
+
+const energy_value = document.querySelector('.energy_value')
+const energy = document.querySelector('#energy')
+energy.addEventListener('input', ()=>energy.textContent = searchForm.energy.value)
+
+const barking_value = document.querySelector('.barking_value')
+const barking = document.querySelector('#barking')
+barking.addEventListener('input', ()=>barking.textContent = searchForm.barking.value)
 
 
 // create HTML element 
