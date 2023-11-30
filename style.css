@@ -107,8 +107,6 @@ input[type="range"] {
   background-color: #3273F6;
   border-radius: 5px;
   margin: 2px;
-  width: 50px;
-  height: 20px;
 }
 
 #submit{
@@ -118,8 +116,6 @@ input[type="range"] {
   border-radius: 5px;
   margin-top: 0;
   margin-bottom: 20px;
-  width: 50px;
-  height: 20px;
 }
 
 
