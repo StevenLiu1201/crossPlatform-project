@@ -57,6 +57,7 @@ nav a:hover{
 
 main{
   grid-column: 1 / 9; /* Main content spans from column 3 to 6 */
+  padding-top: 80px;
 }
 
 #puppedia{
