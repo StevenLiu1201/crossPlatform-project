@@ -5,7 +5,7 @@ const $frag = document.createDocumentFragment();
 const $advice_section = document.querySelector('.advice-section')
 const $advice_content = document.querySelector('.dogAdvice-content')
 const $dogAdvice_description = document.querySelector('.dogAdvice-description')
-
+const $searchForm = document.querySelector('#searchForm')
 // helper fucntions
 // sort by name
 function sortBreeds(breeds){
@@ -107,11 +107,9 @@ function handlePaginationClick(page) {
     });
 }
 
-let testList = filterBreeds(allDogBreedsTest,'barking','4')
-let pageNum = Math.ceil(testList.length / itemsPerPage);
-console.log(testList);
+
 // find your dog (form filter)
-function handleFormSubmit(newBreedsList){
+function handleFormSubmit(newBreedsList,pageNum){
 
     // set current breeds list 
     currentBreedList = newBreedsList
@@ -289,6 +287,7 @@ function showDogAdvice_byElement(e){
     $advice_section.scrollIntoView({ behavior: "smooth" });
 }
 
+
 // function searchBreeds (Created by Ka Kei Cheung)
 function searchBreeds(input) {
     const dogName = document.querySelectorAll('.dogName')
@@ -348,3 +347,55 @@ document.querySelector('.dogsContainer').addEventListener('click',function(e){
     showDogAdvice_byElement(e.target.closest('.dogcard'))
 })
 
+// form submit
+$searchForm.addEventListener('submit',function(e){
+    e.preventDefault()
+
+    //get the dog breeds list
+    let newList = allDogBreedsTest
+    const inputs = $searchForm.getElementsByTagName('input')
+    for (const input of inputs) {
+        if(input.value>0){
+            newList = filterBreeds(newList,input.name,input.value)
+            console.log(input.name);
+            console.log(newList);
+        }
+    }
+
+    let pageNum = Math.ceil(newList.length / itemsPerPage);
+    handleFormSubmit(newList,pageNum)
+
+})
+
+//form reset
+document.querySelector('#reset').addEventListener('click',function(e){
+
+    // set value back 0
+    
+
+    // set current breeds list 
+    currentBreedList = allDogBreedsTest
+
+    // render on the page
+    handlePaginationClick(1)
+
+    //create the Pagination
+    createPagination(totalPages)
+    
+})
+
+/*
+// search input  (zhongrui Liu)
+function filterSearchList(breeds,content){
+    return breeds.filter(item => item.name.toUpperCase().includes(content.toUpperCase()))
+}
+
+$search_input = document.getElementById('inputText')
+$search_input.addEventListener('input',function(e){
+    console.log($search_input.value);
+
+    $dogsContainer.innerHTML = ''
+    renderBreeds(filterSearchList(allDogBreedsTest,$search_input.value))
+    
+})
+*/
