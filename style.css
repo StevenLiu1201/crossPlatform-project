@@ -119,7 +119,35 @@ input[type="range"] {
 }
 
 
-/* dog breed section by Pak Nin Poon */
+/* dog breed section by Pak Nin Poon and Ka Kei Cheung*/
+#searchBreeds {
+  display: flex;
+  justify-content: flex-end;
+}
+#inputText {
+  width: 30%;
+  font-size: 15px;
+  font-family:'PT Sans', sans-serif;
+  border: 3px solid #3273F6;
+  outline: none;
+}
+
+#inputText:focus {
+  color: #6632f6;
+}
+
+.submitButton {
+  width: 30px;
+  height: 27px;
+  border: 1px solid #3273F6;
+  background: #3273F6;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 10px 10px 0;
+  cursor: pointer;
+  font-size: 15px;
+}
+
 .dogBreed{
   flex-direction: column;
   justify-content: space-around;
