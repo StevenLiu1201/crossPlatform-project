@@ -6,6 +6,7 @@
         <meta name='author' content='Ka Kei Cheung/ Poon Pak Nin/ Zhongrui Liu'>
         <link href="https://fonts.googleapis.com/css2?family=Bellota+Text:wght@300&family=Josefin+Sans:wght@100&family=Montserrat&family=Open+Sans:wght@300&family=PT+Sans&family=Playfair+Display:wght@700&family=Raleway:wght@100&family=Roboto:wght@100&family=Space+Grotesk:wght@300&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="projectscript.js" defer></script>
         <script src="dogwithimage.js" defer></script>
         <script src="AllDog.js"></script>
@@ -124,6 +125,10 @@
                 <header class="dogBreedHeader sec_header">
                     <h1>Dog Breeds</h1>
                     <p>will show all breeds by default</p>
+                    <form id="searchBreeds" name="search">
+                        <input type="text" placeholder="Please enter the breeds name" name="Breeds" id="inputText">
+                    </form>
+                    <button type="submit" value="submit" class="submitButton"><i class="fa fa-search"></i></button>
                 </header>
                 <div class="dogBreeds_content">
                     <div class="dogsContainer"></div>

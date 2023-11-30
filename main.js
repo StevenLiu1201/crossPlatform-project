@@ -255,10 +255,25 @@ function showDogAdvice_byElement(e){
     $advice_section.scrollIntoView({ behavior: "smooth" });
 }
 
+// Created by Ka Kei Cheung
+function searchBreeds(input) {
+    const dogName = document.querySelectorAll('.dogName')
+    dogName.forEach((content)=>{
+        const dogContent = content.textContent.toUpperCase()
+        const dogCardContainer = content.closest('.dogcard')
+        if ( dogContent.includes(input)) {
+            dogCardContainer.style.display = 'block'
+        } else {
+            dogCardContainer.style.display = 'none'
+        }
+    })
+}
 
-
-
-
+const userInput = document.getElementById('inputText')
+userInput.addEventListener('input', (e)=>{
+    const userInput = search.Breeds.value.toUpperCase()
+    searchBreeds(userInput)
+})
 
 
 
