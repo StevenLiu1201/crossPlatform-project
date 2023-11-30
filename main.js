@@ -124,8 +124,7 @@ function handleFormSubmit(newBreedsList){
 
 }
 
-// Create by Ka Kei Cheung
-// display formvalue
+// display formvalue (Create by Ka Kei Cheung)
 const good_with_children_value = document.querySelector('.good_with_children_value')
 const good_with_children = document.querySelector('#good_with_children')
 good_with_children.addEventListener('input', ()=>good_with_children_value.textContent = searchForm.good_with_children.value)
@@ -290,8 +289,7 @@ function showDogAdvice_byElement(e){
     $advice_section.scrollIntoView({ behavior: "smooth" });
 }
 
-// Created by Ka Kei Cheung
-// function searchBreeds
+// function searchBreeds (Created by Ka Kei Cheung)
 function searchBreeds(input) {
     const dogName = document.querySelectorAll('.dogName')
     dogName.forEach((content)=>{
@@ -305,7 +303,7 @@ function searchBreeds(input) {
     })
 }
 
-// eventListener on the userinputs
+// eventListener on the userinputs (Created by Ka Kei Cheung)
 const userInput = document.getElementById('inputText')
 userInput.addEventListener('input', (e)=>{
     const userInput = search.Breeds.value.toUpperCase()
