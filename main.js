@@ -69,16 +69,9 @@ function renderBreeds(breeds){
 
 // render breeds by page
 function showBreedsByPage(breeds,pageNumber){
-
-    if ($dogsContainer.firstChild){
-        $dogsContainer.innerHTML = ''
-
-        // finnally, change it to allbreeds
-        renderBreeds(breeds.slice((pageNumber - 1) * itemsPerPage, pageNumber * itemsPerPage))
-
-    }else{
-        alert('Please refresh the page, to initialize')
-    }
+    $dogsContainer.innerHTML = ''
+    renderBreeds(breeds.slice((pageNumber - 1) * itemsPerPage, pageNumber * itemsPerPage))
+ 
 }
 
 //pagination
