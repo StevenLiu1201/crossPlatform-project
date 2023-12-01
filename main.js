@@ -7,18 +7,21 @@ const $advice_content = document.querySelector('.dogAdvice-content')
 const $dogAdvice_description = document.querySelector('.dogAdvice-description')
 const $searchForm = document.querySelector('#searchForm')
 // helper fucntions
-// sort by name
+// sort by name (Create by Zhong Rui Liu)
 function sortBreeds(breeds){
     return breeds.sort((a,b)=> a.name.localeCompare(b.name))
 }
-
-// filter by parameter
+// filter by parameter (Create by Zhong Rui Liu)
 function filterBreeds(breeds,key,value){
     return breeds.filter(item => item[key] == value)
 }
+//filter for search (Create by Zhong Rui Liu)
+function filterSearchList(breeds,content){
+    return breeds.filter(item => item.name.toUpperCase().includes(content.toUpperCase()))
+}
 
 
-// create dog attribute obj
+// create dog attribute obj (Create by Zhong Rui Liu)
 function createAttributesObj(dogInfo_obj){
     let attributs = {}
     attributs['Friendly with children'] = dogInfo_obj['good_with_children']
@@ -34,14 +37,14 @@ function createAttributesObj(dogInfo_obj){
 
 }
 
-// parameter
+// parameter (Create by Zhong Rui Liu)
 const itemsPerPage = 16;
 const totalPages = Math.ceil(155 / itemsPerPage);
 //const totalPages = Math.ceil(dogData.length / itemsPerPage);
 let currentBreedList = allDogBreedsTest    // defalut is the breeds from API, changed after form fiter
 
 
-// render initial breeds on page
+// render initial breeds on page (Create by Zhong Rui Liu)
 function renderBreeds(breeds){
 
     breeds.forEach(item => {
@@ -67,14 +70,14 @@ function renderBreeds(breeds){
 }
 
 
-// render breeds by page
+// render breeds by page (Create by Zhong Rui Liu)
 function showBreedsByPage(breeds,pageNumber){
     $dogsContainer.innerHTML = ''
     renderBreeds(breeds.slice((pageNumber - 1) * itemsPerPage, pageNumber * itemsPerPage))
  
 }
 
-//pagination
+//pagination (Create by Zhong Rui Liu)
 function createPagination(NumOfPage) {
     const $paginationContainer = document.getElementById('pagination');
     $paginationContainer.innerHTML = '';
@@ -86,7 +89,6 @@ function createPagination(NumOfPage) {
         $paginationContainer.appendChild(listItem);
     }
 }
-
 function handlePaginationClick(page) {
     showBreedsByPage(currentBreedList,page);
 
@@ -101,7 +103,7 @@ function handlePaginationClick(page) {
 }
 
 
-// find your dog (form filter)
+// find your dog (form filter) (Create by Zhong Rui Liu)
 function handleFormSubmit(newBreedsList,pageNum){
 
     // set current breeds list 
@@ -150,7 +152,7 @@ barking.addEventListener('input', ()=>barking_value.textContent = $searchForm.ba
 
 
 // create HTML element 
-//create element for dog advice
+//create element for dog advice (Create by Zhong Rui Liu)
 function createHTML_dogDescribe(dogInfo_list1,attributes){
     const $frag = document.createDocumentFragment()
     
@@ -201,7 +203,7 @@ function createHTML_dogDescribe(dogInfo_list1,attributes){
     return $frag
 }
 
-// create the HTML element for the secound part in dog advice
+// create the HTML element for the secound part in dog advice (Create by Zhong Rui Liu)
 function createHTML_dogAdvice(dogName){
     const $frag = document.createDocumentFragment();
 
@@ -247,8 +249,7 @@ function createHTML_dogAdvice(dogName){
 }
 
 
-// event listener function
-// handle dogcard click
+// handle dogcard click (Create by Zhong Rui Liu)
 function showDogAdvice_byElement(e){
     console.log(e);
     const dogName = e.querySelector('.dogName').textContent
@@ -279,28 +280,6 @@ function showDogAdvice_byElement(e){
     //scolling down to advice section
     $advice_section.scrollIntoView({ behavior: "smooth" });
 }
-
-
-// function searchBreeds (Created by Ka Kei Cheung)
-function searchBreeds(input) {
-    const dogName = document.querySelectorAll('.dogName')
-    dogName.forEach((content)=>{
-        const dogContent = content.textContent.toUpperCase()
-        const dogCardContainer = content.closest('.dogcard')
-        if ( dogContent.includes(input)) {
-            dogCardContainer.style.display = 'block'
-        } else {
-            dogCardContainer.style.display = 'none'
-        }
-    })
-}
-
-// eventListener on the userinputs (Created by Ka Kei Cheung)
-const userInput = document.getElementById('inputText')
-userInput.addEventListener('input', (e)=>{
-    const userInput = search.Breeds.value.toUpperCase()
-    searchBreeds(userInput)
-})
 
 
 
@@ -340,7 +319,7 @@ document.querySelector('.dogsContainer').addEventListener('click',function(e){
     showDogAdvice_byElement(e.target.closest('.dogcard'))
 })
 
-// form submit
+// form submit (Create by Zhong Rui Liu)
 $searchForm.addEventListener('submit',function(e){
     e.preventDefault()
 
@@ -360,7 +339,7 @@ $searchForm.addEventListener('submit',function(e){
 
 })
 
-//form reset
+//form reset (Create by Zhong Rui Liu)
 document.querySelector('#reset').addEventListener('click',function(e){
 
     // set value back 0
@@ -380,13 +359,9 @@ document.querySelector('#reset').addEventListener('click',function(e){
     
 })
 
-/*
-// search input  (zhongrui Liu)
-function filterSearchList(breeds,content){
-    return breeds.filter(item => item.name.toUpperCase().includes(content.toUpperCase()))
-}
 
-$search_input = document.getElementById('inputText')
+// search input  (zhongrui Liu / Ka Kei Cheung)
+const $search_input = document.getElementById('inputText')
 $search_input.addEventListener('input',function(e){
     console.log($search_input.value);
 
@@ -394,4 +369,3 @@ $search_input.addEventListener('input',function(e){
     renderBreeds(filterSearchList(allDogBreedsTest,$search_input.value))
     
 })
-*/
