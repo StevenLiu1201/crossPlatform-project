@@ -282,25 +282,37 @@ function showDogAdvice_byElement(e){
 
 
 // function searchBreeds (Created by Ka Kei Cheung)
-function searchBreeds(input) {
-    const dogName = document.querySelectorAll('.dogName')
-    dogName.forEach((content)=>{
-        const dogContent = content.textContent.toUpperCase()
-        const dogCardContainer = content.closest('.dogcard')
-        if ( dogContent.includes(input)) {
-            dogCardContainer.style.display = 'block'
-        } else {
-            dogCardContainer.style.display = 'none'
-        }
-    })
+function filterSearchList(breeds,content){
+    return breeds.filter(item => item.name.toUpperCase().includes(content.toUpperCase()))
 }
 
+// function searchBreeds(input) {
+//     const dogName = document.querySelectorAll('.dogName')
+//     dogName.forEach((content)=>{
+//         const dogContent = content.textContent.toUpperCase()
+//         const dogCardContainer = content.closest('.dogcard')
+//         if ( dogContent.includes(input)) {
+//             dogCardContainer.style.display = 'block'
+//         } else {
+//             dogCardContainer.style.display = 'none'
+//         }
+//     })
+// }
+
 // eventListener on the userinputs (Created by Ka Kei Cheung)
-const userInput = document.getElementById('inputText')
-userInput.addEventListener('input', (e)=>{
-    const userInput = search.Breeds.value.toUpperCase()
-    searchBreeds(userInput)
+$searchInput = document.getElementById('inputText')
+$searchInput.addEventListener('input',(e)=>{
+    console.log($searchInput.value);
+
+    $dogsContainer.innerHTML = ''
+    renderBreeds(filterSearchList(allDogBreedsTest,$searchInput.value))
+    
 })
+// const userInput = document.getElementById('inputText')
+// userInput.addEventListener('input', (e)=>{
+//     const userInput = search.Breeds.value.toUpperCase()
+//     searchBreeds(userInput)
+// })
 
 
 
