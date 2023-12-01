@@ -283,7 +283,6 @@ function showDogAdvice_byElement(e){
 
 
 
-
 // get the all dog breeds list from API
 // this is for the final version
 
@@ -361,6 +360,10 @@ document.querySelector('#reset').addEventListener('click',function(e){
 
 
 // search input  (zhongrui Liu / Ka Kei Cheung)
+function filterSearchList(breeds,content){
+    return breeds.filter(item => item.name.toUpperCase().includes(content.toUpperCase()))
+}
+
 const $search_input = document.getElementById('inputText')
 $search_input.addEventListener('input',function(e){
     console.log($search_input.value);
