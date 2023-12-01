@@ -365,15 +365,29 @@ function filterSearchList(breeds,content){
 }
 
 const $search_input = document.getElementById('inputText')
-$search_input.addEventListener('input',function(e){
-    console.log($search_input.value);
-
+$search_input.addEventListener('input',()=>{
+    // empty the content
     $dogsContainer.innerHTML = ''
+    // search by filterSearchList
     const newList = filterSearchList(allDogBreedsTest,$search_input.value)
+    
+    // render pages
     renderBreeds(newList)
-    console.log(newList)
-
     let pageNum = Math.ceil(newList.length / itemsPerPage);
     handleFormSubmit(newList,pageNum)
+})
+
+const searchBreeds = document.getElementById('searchBreeds')
+searchBreeds.addEventListener('submit',(e)=>{
+    e.preventDefault()
+
+    // empty the content
+    $dogsContainer.innerHTML = ''
+    // search by filterSearchList
+    const newList = filterSearchList(allDogBreedsTest,$search_input.value)
     
+    // render pages
+    renderBreeds(newList)
+    let pageNum = Math.ceil(newList.length / itemsPerPage);
+    handleFormSubmit(newList,pageNum)
 })
