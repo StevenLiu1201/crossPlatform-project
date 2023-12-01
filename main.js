@@ -369,6 +369,11 @@ $search_input.addEventListener('input',function(e){
     console.log($search_input.value);
 
     $dogsContainer.innerHTML = ''
-    renderBreeds(filterSearchList(allDogBreedsTest,$search_input.value))
+    const newList = filterSearchList(allDogBreedsTest,$search_input.value)
+    renderBreeds(newList)
+    console.log(newList)
+
+    let pageNum = Math.ceil(newList.length / itemsPerPage);
+    handleFormSubmit(newList,pageNum)
     
 })
