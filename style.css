@@ -8,8 +8,8 @@ body {
   overflow-x: hidden; /*remove the little space at the bottom*/
 }
 
-img{
-  max-width: 100%; /*Set max-width to prevent image overflow*/
+.carousel img{
+  max-width: 100%; /* Set max-width to prevent image overflow */
 }
 
 header {
@@ -28,7 +28,7 @@ nav{
   max-height: 10%;
   position: fixed;
   z-index: 1000;
-  /* width: 100%;              */
+  max-width: 75%;         
 }
 
 .logo{
@@ -309,7 +309,7 @@ input[type="range"] {
 
 /* footer by Pak Nin Poon*/
 footer {
-  grid-column: 1 / 9; /* Full width footer */
+  grid-column: 2 / 8; /* Full width footer */
   background-color: #f3eee8;
   text-align: center;
 }
