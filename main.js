@@ -40,9 +40,27 @@ function createAttributesObj(dogInfo_obj){
 // parameter (Create by Zhong Rui Liu)
 const itemsPerPage = 16;
 const totalPages = Math.ceil(155 / itemsPerPage);
-//const totalPages = Math.ceil(dogData.length / itemsPerPage);
-let currentBreedList = allDogBreedsTest    // defalut is the breeds from API, changed after form fiter
+let currentBreedList = []    // defalut is the breeds from API, changed after form fiter
 
+// get the all dog breeds list from API (Create by Zhong Rui Liu))
+getAllBreeds().then(result => {
+    // sort the list
+    allBreeds = sortBreeds(result.flat())
+    console.log("All breeds:", allBreeds);
+    currentBreedList = allBreeds
+
+    // take the first 16 result and render on the page
+    renderBreeds(allBreeds.slice(0,16))
+
+    //create pagination
+    createPagination(totalPages)
+
+    // add handler on dog cards
+    document.querySelector('.dogsContainer').addEventListener('click',function(e){
+        showDogAdvice_byElement(e.target.closest('.dogcard'))
+    })
+    
+});
 
 // render initial breeds on page (Create by Zhong Rui Liu)
 function renderBreeds(breeds){
@@ -203,11 +221,13 @@ function createHTML_dogDescribe(dogInfo_list1,attributes){
     return $frag
 }
 
+const generalDescribesParagraph = "Raising a happy and healthy dog involves providing a balanced diet, regular exercise, and veterinary care. Early training and socialization are crucial, along with grooming and mental stimulation. Create a safe and comfortable environment, use positive reinforcement for good behavior, and invest time in building a strong bond through love and attention. Be patient, consistent, and prepared for emergencies, ensuring your dog's well-being and a fulfilling companionship."
+
 // create the HTML element for the secound part in dog advice (Create by Zhong Rui Liu)
 function createHTML_dogAdvice(dogName){
     const $frag = document.createDocumentFragment();
+    const $p = document.createElement('p')
 
-    let describesParagraph = ''
     // get dog slug based on dog name
     const dog = allDogBreeds.filter(item => item['name'] == dogName)
     // if find the dog slug
@@ -221,29 +241,24 @@ function createHTML_dogAdvice(dogName){
             console.log(result);
             // if not return
             if(result[0]['more_about'].length > 0){
+                let describesParagraph = ''
                 const descripContents_list = result[0]['more_about'][0]['more_about_description']
                 console.log(descripContents_list);
                 descripContents_list.forEach(des => describesParagraph += des['description'])
                 console.log(describesParagraph);
+                $p.textContent = describesParagraph
             }else{
                 console.log('sorry, there is no description find from API');
-                describesParagraph = "Raising a happy and healthy dog involves providing a balanced diet, regular exercise, and veterinary care. Early training and socialization are crucial, along with grooming and mental stimulation. Create a safe and comfortable environment, use positive reinforcement for good behavior, and invest time in building a strong bond through love and attention. Be patient, consistent, and prepared for emergencies, ensuring your dog's well-being and a fulfilling companionship."
+                $p.textContent = generalDescribesParagraph
             }
 
         })
         */
-
+        $p.textContent = generalDescribesParagraph  // for now (delete)
     }else{
         console.log('no find dog slug'); 
-        describesParagraph = "Raising a happy and healthy dog involves providing a balanced diet, regular exercise, and veterinary care. Early training and socialization are crucial, along with grooming and mental stimulation. Create a safe and comfortable environment, use positive reinforcement for good behavior, and invest time in building a strong bond through love and attention. Be patient, consistent, and prepared for emergencies, ensuring your dog's well-being and a fulfilling companionship."
+        $p.textContent = generalDescribesParagraph
     }
-
-    // for now, will delete
-    describesParagraph = "Raising a happy and healthy dog involves providing a balanced diet, regular exercise, and veterinary care. Early training and socialization are crucial, along with grooming and mental stimulation. Create a safe and comfortable environment, use positive reinforcement for good behavior, and invest time in building a strong bond through love and attention. Be patient, consistent, and prepared for emergencies, ensuring your dog's well-being and a fulfilling companionship."
-
-    const $p = document.createElement('p')
-    $p.textContent = describesParagraph
-
     $frag.append($p)
     return $frag
 }
@@ -255,7 +270,7 @@ function showDogAdvice_byElement(e){
     const dogName = e.querySelector('.dogName').textContent
 
     // finally, change the allDogBreedsTest to all breeds from api
-    const dogDetail_list = filterBreeds(allDogBreedsTest,'name',dogName)
+    const dogDetail_list = filterBreeds(allBreeds,'name',dogName)
     console.log(dogDetail_list);
 
     // prepare info for rendering
@@ -283,47 +298,12 @@ function showDogAdvice_byElement(e){
 
 
 
-// get the all dog breeds list from API
-// this is for the final version
-
-/*
-getAllBreeds().then(result => {
-    // sort the list
-    allBreeds = sortBreeds(result.flat())
-    console.log("All breeds:", allBreeds);
-
-    // take the first 12 result and render on the page
-    renderBreeds(allBreeds.slice(0,16))
-
-    //create pagination
-    createPagination(totalPages)
-
-    // add handler on dog cards
-    document.querySelector('.dogsContainer').addEventListener('click',function(e){
-        showDogAdvice_byElement(e.target.closest('.dogcard'))
-    })
-    
-
-});
-*/
-
-// temerary use test list
-allDogBreedsTest = sortBreeds(allDogBreedsTest)
-
-// initial dog breeds
-renderBreeds(allDogBreedsTest.slice(0,16))
-createPagination(totalPages)
-
-document.querySelector('.dogsContainer').addEventListener('click',function(e){
-    showDogAdvice_byElement(e.target.closest('.dogcard'))
-})
-
 // form submit (Create by Zhong Rui Liu)
 $searchForm.addEventListener('submit',function(e){
     e.preventDefault()
 
     //get the dog breeds list
-    let newList = allDogBreedsTest
+    let newList = allBreeds
     const inputs = $searchForm.getElementsByTagName('input')
     for (const input of inputs) {
         if(input.value>0){
@@ -348,7 +328,7 @@ document.querySelector('#reset').addEventListener('click',function(e){
     }
 
     // set current breeds list 
-    currentBreedList = allDogBreedsTest
+    currentBreedList = allBreeds
 
     // render on the page
     handlePaginationClick(1)
@@ -369,7 +349,7 @@ $search_input.addEventListener('input',()=>{
     // empty the content
     $dogsContainer.innerHTML = ''
     // search by filterSearchList
-    const newList = filterSearchList(allDogBreedsTest,$search_input.value)
+    const newList = filterSearchList(allBreeds,$search_input.value)
     
     // render pages
     renderBreeds(newList)
@@ -384,7 +364,7 @@ searchBreeds.addEventListener('submit',(e)=>{
     // empty the content
     $dogsContainer.innerHTML = ''
     // search by filterSearchList
-    const newList = filterSearchList(allDogBreedsTest,$search_input.value)
+    const newList = filterSearchList(allBreeds,$search_input.value)
     
     // render pages
     renderBreeds(newList)
