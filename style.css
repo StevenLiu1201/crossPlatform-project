@@ -38,7 +38,7 @@ nav{
 
 nav a{
   text-decoration: none;
-  color:#3c404e;
+  color:#13348E;
   transition: color 0.2s ease-in-out;
 }
 
@@ -81,7 +81,6 @@ main{
 /* dog finder section by Ka Kei Cheung, styling by Pak Nin Poon */
 .dogFinderSearch {
   text-align: center;
-  /* background-color: #efe2d2; */
   background-color: #F6F6F2;
   display: flex;
   flex-direction: column;
@@ -178,12 +177,13 @@ input[type="range"] {
 .dogcard{
   border: 1px solid #dad7cd;
   background-color:#fffcf2;
+  background-color:#f1f2eb;
   text-align: center;
   color:#8a817c;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   border-bottom: 5px solid #8a817c;
-  transition: color 0.3s ease-in-out;
+  transition: color 0.2s ease-in-out;
 }
 
 .dogcard:hover{
@@ -201,7 +201,7 @@ input[type="range"] {
  .pagination {
   display: flex;
   list-style: none;
-  padding: 0;
+  padding-bottom: 20px;
   margin: auto;
   justify-content: center;
 }
@@ -210,11 +210,18 @@ input[type="range"] {
   margin-right: 10px;
   cursor: pointer;
   font-size: 20pt;
-  color:dimgray;
+  width: 18px;
+  line-height: 24pt;
+  color:#8a817c;
+}
+
+.pagination li:hover{
+  color:#6c584c;
+  font-size: 22pt;
 }
 
 .pagination li.active {
-  color: black;
+  color:#6c584c;
   font-weight: bold;
   font-size: 22pt;
 }
@@ -317,6 +324,18 @@ input[type="range"] {
   max-width: 40%;
 }
 
+.steven{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lynn{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .jacky{
   display: flex;
   flex-direction: column;
@@ -329,6 +348,7 @@ footer {
   grid-column: 2 / 8; /* Full width footer */
   background-color: #f3eee8;
   text-align: center;
+  font-weight: bold;
 }
 
 
@@ -431,7 +451,7 @@ ol, li {
 } 
 
 .carousel {
-  background-color: #efe2d2;
+  background-color: #f3eee8;
   position: relative;
   z-index: 1;
   padding-top: 50%;
