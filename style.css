@@ -15,7 +15,7 @@ body {
 header {
   grid-column: 2 / 8; 
 }
-
+/*create by Pak Nin Poon*/
 nav{
   display: flex;
   justify-content: space-around;
@@ -30,7 +30,6 @@ nav{
   z-index: 1000;
   max-width: 75%;         
 }
-
 .logo{
   width: 25%;
   margin-left: 0;
@@ -256,9 +255,9 @@ input[type="range"] {
 .dogAttributes_container{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
-  gap: 10px;
+  gap: 20px;
 }
 
 
