@@ -13,7 +13,7 @@ body {
 }
 
 header {
-  grid-column: 2 / 8; /* Full width header */
+  grid-column: 2 / 8; 
 }
 
 nav{
@@ -32,18 +32,18 @@ nav{
 }
 
 .logo{
-  width: 15%;
+  width: 25%;
   margin-left: 0;
 }
 
 nav a{
   text-decoration: none;
-  color: #000;
+  color:#3c404e;
   transition: color 0.2s ease-in-out;
 }
 
 nav a:hover{
-  color: #F64C72;  
+  color:#F64C72;
 }
 
 /* section header */
@@ -56,25 +56,33 @@ nav a:hover{
 
 
 main{
-  grid-column: 2 / 8; /* Main content spans from column 3 to 6 */
+  grid-column: 2 / 8;
   padding-top: 80px;
 }
 
 .puppedia{
-  text-align:justify;
   background-color: #efe2d2;
-  display: flex;
-  flex-direction: column;
-  border-radius: 5px;
-  padding: 20px;
+  background-color: #F6F6F2;
+  padding: 10px 57px 10px;
+  margin:0;
+}
+
+#puppedia_1st_para{
+  border-radius: 5px 5px 0 0;
+  padding-top: 20px;
+}
+
+#puppedia_last_para{
+  border-radius: 0 0 5px 5px;
+  padding-bottom: 20px;
 }
 
 
-
-/* dog finder section by Ka Kei Cheung */
+/* dog finder section by Ka Kei Cheung, styling by Pak Nin Poon */
 .dogFinderSearch {
   text-align: center;
-  background-color: #efe2d2;
+  /* background-color: #efe2d2; */
+  background-color: #F6F6F2;
   display: flex;
   flex-direction: column;
   border-radius: 5px;
@@ -82,20 +90,18 @@ main{
 
 .formFlexContainer{
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   margin-top: 20px;
 }
 
 .formDiv1{
   display: flex;
   flex-direction: column;
-  margin: 0 90px 0 0;
 }
 
 .formDiv2{
   display: flex;
   flex-direction: column;
-  margin: 0 0 0 90px;
 }
 
 input[type="range"] {
@@ -157,9 +163,8 @@ input[type="range"] {
 
 }
 .dogBreeds_content{
-  background-color: #efe2d2;
+  background-color: #F6F6F2;
   border-radius: 5px;
-  /* height: 1220px; */
 }
 
 .dogsContainer{
@@ -171,18 +176,23 @@ input[type="range"] {
 }
 
 .dogcard{
-  border: 1px solid rgb(199, 196, 196);
-  border-radius: 10px;
-  background-color: white;
+  border: 1px solid #dad7cd;
+  background-color:#fffcf2;
   text-align: center;
+  color:#8a817c;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  padding: 10px;
+  border-bottom: 5px solid #8a817c;
+  transition: color 0.3s ease-in-out;
+}
+
+.dogcard:hover{
+  color:#F64C72;
+  border-bottom: 5px solid #F64C72;
 }
 
 .dogBreedsImg {
   width: 100%;
-  border-radius: 5px;
 }
 
 
@@ -206,6 +216,7 @@ input[type="range"] {
 .pagination li.active {
   color: black;
   font-weight: bold;
+  font-size: 22pt;
 }
 
 
@@ -226,6 +237,7 @@ input[type="range"] {
 .dogAdvice-description {
   text-align: justify;
   padding: 10px;
+  padding: 10px 57px 10px;
   background-color: #efe2d2;
   border-radius: 0 0 5px 5px;
 }
@@ -290,21 +302,26 @@ input[type="range"] {
 
 
 
-/* developer section by Ka Kei Cheung*/
-.developer {
-  grid-column: 1/9;
-}
+/* developer section by Ka Kei Cheung, Pak Nin Poon*/
 
 .developerContainer{
-  grid-column: 1/9;
   display: grid;
   grid-template-columns: repeat(3,1fr);
   gap: 10px;
-  background-color: #efe2d2;
+  background-color: #F6F6F2;
   border-radius: 5px;
   padding:10px;
 }
 
+.developerContainer img{
+  max-width: 40%;
+}
+
+.jacky{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 
 /* footer by Pak Nin Poon*/
@@ -326,6 +343,7 @@ footer {
 
 .dogFinderImg {
   width: 100%;
+  height: 100%;
 }
 .dogsImg{
   width: 100%;
@@ -409,8 +427,8 @@ footer {
 ol, li {
   list-style: none;
   margin: 0;
-  padding: 0;
-}
+  padding: 0; 
+} 
 
 .carousel {
   background-color: #efe2d2;
@@ -419,6 +437,9 @@ ol, li {
   padding-top: 50%;
   filter: drop-shadow(0 0 10px #0003);
   perspective: 100px;
+  width: 100%; /* Set the width of the container */
+  height: 100vh; /* Set the height of the container, you can adjust this based on your needs */
+  overflow: hidden;
 }
 
 .carousel_viewport {
@@ -435,18 +456,23 @@ ol, li {
   scrollbar-width: none;
 }
 
-.carousel_viewport::-webkit-scrollbar {
+/* .carousel_viewport::-webkit-scrollbar {
   display: none;
-}
+} */
 
 .carousel_slide {
   position: relative;
   flex: 0 0 100%;
   width: 100%;
+  height: 100%;
   background-color: #f99;
   counter-increment: item;
+}
 
-
+.carousel_slide img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .carousel_slide:nth-child(even) {
