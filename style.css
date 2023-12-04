@@ -322,6 +322,9 @@ input[type="range"] {
 .developerContainer img{
   max-width: 40%;
 }
+.developerContainer h3{
+  text-align: center;
+}
 
 .steven{
   display: flex;
