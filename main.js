@@ -236,7 +236,7 @@ function createHTML_dogAdvice(dogName){
         console.log(dogSlug);
 
         // get the return from new API
-        /*
+       
         getOne(dogSlug).then(result => {
             console.log(result);
             // if not return
@@ -253,8 +253,8 @@ function createHTML_dogAdvice(dogName){
             }
 
         })
-        */
-        $p.textContent = generalDescribesParagraph  // for now (delete)
+        
+       // $p.textContent = generalDescribesParagraph  // for now (delete)
     }else{
         console.log('no find dog slug'); 
         $p.textContent = generalDescribesParagraph
