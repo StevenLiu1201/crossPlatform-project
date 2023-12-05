@@ -206,7 +206,7 @@ input[type="range"] {
   list-style: none;
   padding-right: 40px;
   padding-bottom: 20px;
-  /* margin: auto; */
+  margin: auto;
   justify-content: center;
 }
 
