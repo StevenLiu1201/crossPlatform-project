@@ -65,7 +65,6 @@ main{
 }
 
 .puppedia{
-  background-color: #efe2d2;
   background-color: #F6F6F2;
   padding: 10px 57px 10px;
   margin:0;
@@ -181,7 +180,6 @@ input[type="range"] {
 
 .dogcard{
   border: 1px solid #dad7cd;
-  background-color:#fffcf2;
   background-color:#f1f2eb;
   text-align: center;
   color:#8a817c;
@@ -665,5 +663,9 @@ ol, li {
 
 .pagination li:hover{
   font-size: 16pt;
+}
+
+#inputText{
+  font-size: 6px;
 }
 }
