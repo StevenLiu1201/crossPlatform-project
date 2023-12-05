@@ -206,8 +206,9 @@ input[type="range"] {
  .pagination {
   display: flex;
   list-style: none;
+  padding-right: 40px;
   padding-bottom: 20px;
-  margin: auto;
+  /* margin: auto; */
   justify-content: center;
 }
 
@@ -654,5 +655,15 @@ ol, li {
 
 .developerContainer{
   grid-template-columns: 1fr;
+}
+
+.pagination li {
+  font-size: 14pt;
+  margin-right: 8px;
+  width: 14px;
+  }
+
+.pagination li:hover{
+  font-size: 16pt;
 }
 }
