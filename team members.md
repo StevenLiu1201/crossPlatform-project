@@ -1,5 +1,5 @@
 roles:
-team leader: Steven
+team leader: (Steven) Zhong rui Liu
 
 frontend UI designer: lynn
 frontend designer: Jacky
